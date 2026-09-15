@@ -284,7 +284,7 @@ MonoBehaviour:
   lateLatchingDebug: 0
   optimizeMultiviewRenderRegions: 0
   m_multiviewRenderRegionsOptimizationMode: 0
-  m_hasMigratedMultiviewRenderRegions: 0
+  m_hasMigratedMultiviewRenderRegions: 1
   spacewarpMotionVectorTextureFormat: 0
 --- !u!114 &-3281540155045813953
 MonoBehaviour:
@@ -960,25 +960,25 @@ MonoBehaviour:
   m_Name: Android
   m_EditorClassIdentifier: Unity.XR.OpenXR::UnityEngine.XR.OpenXR.OpenXRSettings
   features:
-  - {fileID: 945421816910007431}
-  - {fileID: -7521105471284986503}
-  - {fileID: 8056462253334445442}
-  - {fileID: -3973160667069961980}
-  - {fileID: 6330190417288216051}
-  - {fileID: -6243684188930489563}
-  - {fileID: 3522604408600214318}
-  - {fileID: -5349445317900944233}
-  - {fileID: 2933868114300577614}
-  - {fileID: 3084116779467656569}
-  - {fileID: -1423560439558171389}
   - {fileID: -3225446301172824823}
+  - {fileID: -4361536157478468956}
+  - {fileID: 6330190417288216051}
+  - {fileID: -1423560439558171389}
+  - {fileID: 2933868114300577614}
+  - {fileID: -2372588758129087476}
+  - {fileID: -7294143412449688251}
   - {fileID: 8418743159559422442}
   - {fileID: -5978563802134207063}
-  - {fileID: 2739236276400819440}
-  - {fileID: -7294143412449688251}
-  - {fileID: -2372588758129087476}
+  - {fileID: -3973160667069961980}
   - {fileID: 7988578959402480255}
-  - {fileID: -4361536157478468956}
+  - {fileID: 3084116779467656569}
+  - {fileID: -5349445317900944233}
+  - {fileID: 8056462253334445442}
+  - {fileID: -7521105471284986503}
+  - {fileID: 3522604408600214318}
+  - {fileID: -6243684188930489563}
+  - {fileID: 945421816910007431}
+  - {fileID: 2739236276400819440}
   customLoaderName: 
   m_renderMode: 1
   m_latencyOptimization: 0
@@ -991,7 +991,7 @@ MonoBehaviour:
   m_symmetricProjection: 0
   m_optimizeMultiviewRenderRegions: 0
   m_multiviewRenderRegionsOptimizationMode: 0
-  m_hasMigratedMultiviewRenderRegionSetting: 0
+  m_hasMigratedMultiviewRenderRegionSetting: 1
   m_foveatedRenderingApi: 0
   m_useOpenXRPredictedTime: 0
 --- !u!114 &8819757031388103987
