@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.EnhancedTouch;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 
@@ -10,18 +12,45 @@ public class ARPlaceCube : MonoBehaviour
 
     bool isPlacing = false;
 
+    private void OnEnable(){
+        EnhancedTouchSupport.Enable();
+    }
+
+    private void OnDisable()
+    {
+        EnhancedTouchSupport.Disable();
+    }
+
     void Update(){
-        if(!raycastManager) return;
+        if (!raycastManager) return;
+        if (isPlacing) return;
 
-        if((Input.touchCount > 0 && Input.GetTouch(0).phase ==TouchPhase.Began || Input.GetMouseButtonDown(0)) && !isPlacing){
-            isPlacing = true;
+        bool pressed = false;
 
-            if(Input.touchCount > 0){
-                PlaceObject(Input.GetTouch(0).position);
-            }else{
-                PlaceObject(Input.mousePosition);
+        Vector2 screenPosition = default;
+
+        if (Touchscreen.current != null)
+        {
+            var primary = Touchscreen.current.primaryTouch;
+
+            if (primary.press.wasPressedThisFrame)
+            {
+                pressed = true;
+                PlaceObject(primary.position.ReadValue());
             }
         }
+        else if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
+        {
+            pressed = true;
+            screenPosition = Mouse.current.position.ReadValue();
+        }
+
+        if (pressed)
+        {
+            isPlacing = true;
+            PlaceObject(screenPosition);
+        }
+
     }
 
     void PlaceObject(Vector2 touchPosition){
@@ -37,7 +66,7 @@ public class ARPlaceCube : MonoBehaviour
     }
 
     IEnumerator SetIsPlacingToFalseWithDelay(){
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.25f);
         isPlacing = false;
     }
 }
